@@ -11,6 +11,12 @@ import QuizScreen from './src/screens/QuizScreen';
 import CoachingChatScreen from './src/screens/CoachingChatScreen';
 import AnonymousCoachingScreen from './src/screens/AnonymousCoachingScreen';
 
+// Community feature screens
+import PeerCoachingChat from './src/screens/PeerCoachingChat';
+import GlobalClassroomChat from './src/screens/GlobalClassroomChat';
+import EducationalDAO from './src/screens/EducationalDAO';
+import InternshipMarketplace from './src/screens/InternshipMarketplace';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -54,6 +60,28 @@ export default function App() {
               name="CoachingChat"
               component={CoachingChatScreen}
               options={{ headerShown: true, title: 'Coaching Chat' }}
+            />
+
+            {/* ✅ Community Feature Screens */}
+            <Stack.Screen
+              name="PeerCoachingChat"
+              component={PeerCoachingChat}
+              options={{ headerShown: true, title: 'Peer Coaching' }}
+            />
+            <Stack.Screen
+              name="GlobalClassroomChat"
+              component={GlobalClassroomChat}
+              options={{ headerShown: true, title: 'Global Classroom' }}
+            />
+            <Stack.Screen
+              name="EducationalDAO"
+              component={EducationalDAO}
+              options={{ headerShown: true, title: 'Educational DAO' }}
+            />
+            <Stack.Screen
+              name="InternshipMarketplace"
+              component={InternshipMarketplace}
+              options={{ headerShown: true, title: 'Micro Internships' }}
             />
           </>
         ) : (
