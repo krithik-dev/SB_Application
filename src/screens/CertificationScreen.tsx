@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-  FlatList,
   TouchableOpacity,
   Image,
   KeyboardAvoidingView,
@@ -18,6 +17,8 @@ import { useFocusEffect } from '@react-navigation/native';
 
 import stream1Image from '../../assets/images/stream1.png';
 import stream2Image from '../../assets/images/stream2.png';
+import stream3Image from '../../assets/images/stream3.png';
+import stream4Image from '../../assets/images/stream4.png';
 
 const PURPLE = '#6C63FF';
 
@@ -56,33 +57,31 @@ const mockStreams = [
   },
   {
     id: 'd44ac231-2f6e-4e9f-b5ef-1234567890ab',
-    title: 'ML Mini Project: Digit Classifier',
-    user: 'DevStudent42',
-    avatar: 'https://i.pravatar.cc/100?img=2',
-    viewers: 32,
-    thumbnail: stream2Image,
+    title: 'React Native UI Deep Dive',
+    user: 'UIWizard',
+    avatar: 'https://i.pravatar.cc/100?img=3',
+    viewers: 45,
+    thumbnail: stream3Image,
     initialComments: [
-      'Hey all!',
-      'This is super helpful.',
-      'I love ML!',
-      'Can you explain sigmoid?',
-      'How to deploy this?',
+      'Loving this design!',
+      'Is this Tailwind?',
+      'How to make animations?',
+      'React Native FTW!',
       '🔥🔥🔥',
     ],
   },
   {
     id: 'e77ec8d0-1f95-4ab9-bb22-abcdefabcdef',
-    title: 'Building a Python ToDo App',
-    user: 'CodeWithAnya',
-    avatar: 'https://i.pravatar.cc/100?img=1',
-    viewers: 58,
-    thumbnail: stream1Image,
+    title: 'Intro to APIs with Node.js',
+    user: 'BackendNinja',
+    avatar: 'https://i.pravatar.cc/100?img=4',
+    viewers: 27,
+    thumbnail: stream4Image,
     initialComments: [
-      'Welcome again!',
-      'Still love this app idea.',
-      'Redux or Zustand?',
-      'What backend are you using?',
-      'Firebase or Supabase?',
+      'What API framework is best?',
+      'Express or Fastify?',
+      'How to connect to Supabase?',
+      'Great session!',
       '🔥🔥🔥',
     ],
   },
@@ -103,6 +102,18 @@ const CertificationScreen = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState('');
 
+  // ✅ Random avatar generator
+  const getRandomAvatar = () => `https://i.pravatar.cc/100?img=${Math.floor(Math.random() * 70) + 1}`;
+
+  // ✅ Random username generator
+  const randomUsernames = [
+    'TechGuru21', 'MLFan99', 'ReactNinja', 'CodeLoverX', 'JSWizard',
+    'BackendBoss', 'DevQueen', 'AlgoKing', 'CloudCoder', 'PixelDev',
+    'FullStackFox', 'NeuralNetPro', 'Pythonista', 'BugSquasher', 'DesignGeek'
+  ];
+  const getRandomUsername = () =>
+    randomUsernames[Math.floor(Math.random() * randomUsernames.length)];
+
   const loadComments = async (streamId: string) => {
     try {
       const data = await fetchComments(streamId);
@@ -110,12 +121,13 @@ const CertificationScreen = () => {
         setComments(data);
       } else {
         const stream = mockStreams.find((s) => s.id === streamId);
-        const sample = stream?.initialComments.map((msg, idx) => ({
-          id: `sample-${idx}`,
-          user: stream.user,
-          avatar: stream.avatar,
-          message: msg,
-        })) ?? [];
+        const sample =
+          stream?.initialComments.map((msg, idx) => ({
+            id: `sample-${idx}`,
+            user: getRandomUsername(), // ✅ Random name
+            avatar: getRandomAvatar(), // ✅ Random avatar
+            message: msg,
+          })) ?? [];
         setComments(sample);
       }
     } catch (err) {
@@ -128,7 +140,7 @@ const CertificationScreen = () => {
     const newEntry: Comment = {
       id: Date.now().toString(),
       user: 'You',
-      avatar: 'https://i.pravatar.cc/100?img=5',
+      avatar: getRandomAvatar(),
       message: newComment.trim(),
     };
     setComments((prev) => [newEntry, ...prev]);

@@ -9,7 +9,7 @@ import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
 import QuizScreen from './src/screens/QuizScreen';
 import CoachingChatScreen from './src/screens/CoachingChatScreen';
-import AnonymousCoachingScreen from './src/screens/AnonymousCoachingScreen';
+
 
 // Community feature screens
 import PeerCoachingChat from './src/screens/PeerCoachingChat';
@@ -52,11 +52,6 @@ export default function App() {
               options={{ headerShown: true, title: 'Lesson Quiz' }}
             />
             <Stack.Screen
-              name="AnonymousCoaching"
-              component={AnonymousCoachingScreen}
-              options={{ headerShown: true, title: 'Anonymous Coaching' }}
-            />
-            <Stack.Screen
               name="CoachingChat"
               component={CoachingChatScreen}
               options={{ headerShown: true, title: 'Coaching Chat' }}
@@ -66,7 +61,7 @@ export default function App() {
             <Stack.Screen
               name="PeerCoachingChat"
               component={PeerCoachingChat}
-              options={{ headerShown: true, title: 'Peer Coaching' }}
+              options={{ headerShown: false, title: 'Peer Coaching' }}
             />
             <Stack.Screen
               name="GlobalClassroomChat"
@@ -76,7 +71,7 @@ export default function App() {
             <Stack.Screen
               name="EducationalDAO"
               component={EducationalDAO}
-              options={{ headerShown: true, title: 'Educational DAO' }}
+              options={{ headerShown: false, title: 'Educational DAO' }}
             />
             <Stack.Screen
               name="InternshipMarketplace"

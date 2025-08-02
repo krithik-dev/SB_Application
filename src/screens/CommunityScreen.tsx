@@ -16,7 +16,7 @@ const CommunityScreen = () => {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.header}>🌍 Community</Text>
+      <Text style={styles.header}>Community</Text>
 
       <TouchableOpacity
         style={styles.card}

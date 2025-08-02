@@ -193,13 +193,7 @@ Topics: "${gapInput}"`
               <Text style={styles.cardDesc}>Identify and fix weak topics</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.featureCard} onPress={() => navigation.navigate('AnonymousCoaching')}>
-            <Ionicons name="people" size={28} color="#653ca4" style={styles.cardIcon} />
-            <View>
-              <Text style={styles.cardTitle}>Anonymous Coaching</Text>
-              <Text style={styles.cardDesc}>Peer support without judgment</Text>
-            </View>
-          </TouchableOpacity>
+          
         </View>
 
         {/* Chat Messages */}
